@@ -50,7 +50,7 @@ Configuration
          "loggly": {
             "class": "logging.StreamHandler",
             "formatter": "jsonlines",
-            "filters": ["defaultsetter"]
+            "filters": ["defaultsetter"],
             "stream": "ext://sys.stdout"
          }
       },
