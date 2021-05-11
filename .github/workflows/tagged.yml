@@ -1,0 +1,29 @@
+name: Release pipeline
+on:
+  push:
+    branches-ignore: ["*"]
+    tags: ["*"]
+
+jobs:
+  python-package:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags') && github.repository == 'aweber/json-scribe'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.9
+      - name: Build
+        run: |
+          python -m pip install --upgrade pip setuptools twine
+          python setup.py sdist bdist_wheel
+      - name: Check distributions
+        run: |
+          twine check dist/*
+      - name: Upload packages
+        uses: pypa/gh-action-pypi-publish@v1.4.2
+        with:
+          user: __token__
+          password: ${{secrets.PYPI_PASSWORD}}
+          skip_existing: true  # true paranoia!
