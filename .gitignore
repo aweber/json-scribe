@@ -1,0 +1,7 @@
+build/
+dist/
+env/
+reports/
+*.egg-info
+*.pyc
+.coverage
