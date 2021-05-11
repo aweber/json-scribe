@@ -23,6 +23,7 @@ setuptools.setup(
             'wheel==0.36.2',
             'yapf==0.22.0',
         ],
+        'readthedocs': ['Sphinx==4.0.1'],
     },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
