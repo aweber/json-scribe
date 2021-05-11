@@ -17,7 +17,8 @@ setuptools.setup(
         'dev': [
             'coverage==5.5',
             'flake8==3.9.2',
-            'Sphinx==4.0.1',
+            "Sphinx==1.8.5; python_version < '3'",
+            "Sphinx==4.0.1; python_version >= '3.7'",
             'readme-renderer==21.0',
             'wheel==0.36.2',
             'yapf==0.22.0',
