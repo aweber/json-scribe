@@ -1,9 +1,9 @@
 Release History
 ===============
 
-Next release
-------------
-- Make publicly available.
+2.0.0 (11-May-2021)
+-------------------
+- First publicly available release.
 
 1.1.0 (11-Feb-2020)
 -------------------
