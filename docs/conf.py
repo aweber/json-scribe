@@ -6,6 +6,7 @@ release = '.'.join(str(c) for c in jsonscribe.version_info[:2])
 version = jsonscribe.version
 source_suffix = '.rst'
 master_doc = 'index'
+html_extra_path = ['../CODE_OF_CONDUCT.md']
 html_static_path = ['.']
 html_theme = 'alabaster'
 html_sidebars = {'**': ['about.html', 'navigation.html', 'searchbox.html']}

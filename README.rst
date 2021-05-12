@@ -1,6 +1,6 @@
 Write your logs as json-lines.
 
-|build| |coverage| |docs| |source| |download| |license|
+|build| |coverage| |docs| |source| |download| |license| |coc|
 
 This library is the result of sending docker container logs to loggly.
 Loggly works well with structured Syslog data but if you pass structured
@@ -96,6 +96,8 @@ make it readable.  The default is to render it as compact JSON.
 .. _pypi.org: https://pypi.org/project/json-scribe
 .. |build| image:: https://img.shields.io/github/workflow/status/aweber/json-scribe/Testing/main?style=social
    :target: https://github.com/aweber/json-scribe/actions/workflows/testing.yml
+.. |coc| image:: https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg?style=social
+   :target: CODE_OF_CONDUCT.md
 .. |coverage| image:: https://img.shields.io/codecov/c/github/aweber/json-scribe?style=social
    :target: https://app.codecov.io/gh/aweber/json-scribe
 .. |docs| image:: https://img.shields.io/readthedocs/json-scribe.svg?style=social

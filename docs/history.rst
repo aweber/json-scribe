@@ -6,6 +6,7 @@ Release History
 - Add contributors notes & license file.
 - Integrate with readthedocs.org.
 - Integrate with codecov.io.
+- Adopt the Contributor Covenant.
 
 2.0.0 (11-May-2021)
 -------------------

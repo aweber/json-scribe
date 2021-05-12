@@ -1,6 +1,7 @@
 graft docs
 graft examples
 graft tests
+include CODE_OF_CONDUCT.md
 include CONTRIBUTING.rst
 include LICENSE
 include tox.ini
