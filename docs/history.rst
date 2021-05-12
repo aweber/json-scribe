@@ -1,6 +1,13 @@
 Release History
 ===============
 
+:compare:`Next release <2.0.0...main>`
+--------------------------------------
+- Add contributors notes & license file.
+- Integrate with readthedocs.org.
+- Integrate with codecov.io.
+- Adopt the Contributor Covenant.
+
 2.0.0 (11-May-2021)
 -------------------
 - First publicly available release.

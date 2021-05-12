@@ -1,3 +1,5 @@
+JSON Logging
+============
 .. include:: ../README.rst
 
 .. toctree::
