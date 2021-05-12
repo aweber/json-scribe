@@ -1,6 +1,10 @@
 Release History
 ===============
 
+:compare:`Next release <2.0.0...main>`
+--------------------------------------
+- Add contributors notes & license file.
+
 2.0.0 (11-May-2021)
 -------------------
 - First publicly available release.

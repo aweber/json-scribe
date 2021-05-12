@@ -1,4 +1,7 @@
 graft docs
 graft examples
 graft tests
+include CONTRIBUTING.rst
+include LICENSE
+include tox.ini
 global-exclude *.pyc
