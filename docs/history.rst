@@ -7,6 +7,7 @@ Release History
 - Integrate with readthedocs.org.
 - Integrate with codecov.io.
 - Adopt the Contributor Covenant.
+- Add ``jsonscribe.config`` module.
 
 2.0.0 (11-May-2021)
 -------------------
