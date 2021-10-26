@@ -3,22 +3,15 @@ Developer Interface
 
 Logging configuration
 ---------------------
-The ``jsonscribe.config`` module contains functions that generate sane :func:`logging.dictConfig` values
-for difference scenarios.  Each of the configuration functions uses a template that you can modify before
+The ``jsonscribe.config`` module contains functions that generate sane :func:`logging.config.dictConfig`
+values for difference scenarios.  Each of the configuration functions uses a template that you can modify before
 calling the function (see :data:`~jsonscribe.config.CONFIGURATION_DEFAULTS`).  The configuration functions
 also obey the following environment variables if they are present.
-
-.. autofunction:: jsonscribe.config.get_service_configuration
-
-.. autofunction:: jsonscribe.config.get_cli_configuration
-
-.. autodata:: jsonscribe.config.CONFIGURATION_DEFAULTS
-   :no-value:
 
 .. envvar:: DEBUG
 
    If this environment variable is set and it can be parsed as a boolean value and the result is *truthy*,
-   then the root log level will be :autodata:`logging.DEBUG` instead of the default value.  See
+   then the root log level will be :data:`logging.DEBUG` instead of the default value.  See
    :func:`~jsonscribe.utils.parse_boolean` for the list of acceptable values.
 
 .. envvar:: LOG_FORMAT
@@ -30,6 +23,13 @@ also obey the following environment variables if they are present.
 
       If ``LOG_FORMAT`` is set to a value that is not a configured formatter, then the configuration functions
       will raise a :exc:`ValueError`.
+
+.. autofunction:: jsonscribe.config.get_service_configuration
+
+.. autofunction:: jsonscribe.config.get_cli_configuration
+
+.. autodata:: jsonscribe.config.CONFIGURATION_DEFAULTS
+   :no-value:
 
 Implementation classes
 ----------------------

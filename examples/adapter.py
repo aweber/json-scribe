@@ -14,7 +14,7 @@ Note that this pattern can be used with or without the JSON formatter
 since it is simply a usage of :class:`logging.LoggerAdapter`.
 
 """
-import logging
+import logging.config
 import uuid
 
 import jsonscribe
@@ -36,15 +36,18 @@ class Processor(object):
 
 
 if __name__ == '__main__':
-    logging.basicConfig(
-        level=logging.INFO,
-        format=('%(levelname)1.1s %(name)s: %(message)s'
-                '\t{correlation_id=%(correlation_id)s}'))
-    root_logger = logging.getLogger()
-    handler = root_logger.handlers[0]
-    handler.addFilter(
-        jsonscribe.AttributeSetter(
-            add_fields={'correlation_id': 'ext://UUID'}))
+    config = jsonscribe.get_cli_configuration()
+    config['filters']['attr-setter'] = {
+        '()': 'jsonscribe.AttributeSetter',
+        'add_fields': {
+            'correlation_id': 'ext://UUID'
+        }
+    }
+    config['handlers']['console']['filters'].append('attr-setter')
+    config['formatters']['plain']['format'] = (
+        '%(levelname)1.1s %(name)s: %(message)s'
+        '\t{correlation_id=%(correlation_id)s}')
+    logging.config.dictConfig(config)
 
     processor = Processor()
     for i in range(0, 10):
