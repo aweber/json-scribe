@@ -8,6 +8,7 @@ Release History
 - Integrate with codecov.io.
 - Adopt the Contributor Covenant.
 - Add ``jsonscribe.config`` module.
+- Advertise support for 3.10
 
 2.0.0 (11-May-2021)
 -------------------
