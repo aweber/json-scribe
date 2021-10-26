@@ -54,11 +54,19 @@ def parse_boolean(s):
     0, n, no, f, or false for *falsiness*.
 
     """
+    if isinstance(s, (int, float)):
+        return bool(s)
     if s is None:
-        s = ''
-    value = s.strip().lower()
-    if value in ('0', 'n', 'no', 'f', 'false'):
         return False
-    if value in ('1', 'y', 'yes', 't', 'true'):
-        return True
+
+    try:
+        value = s.strip().lower()
+    except AttributeError:
+        pass  # unexpected type, raise a ValueError
+    else:
+        if value in ('0', 'n', 'no', 'f', 'false'):
+            return False
+        if value in ('1', 'y', 'yes', 't', 'true'):
+            return True
+
     raise ValueError('cannot determine Boolean value: %r' % (s, ))
