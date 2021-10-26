@@ -19,7 +19,7 @@ jobs:
       - name: Install python
         uses: actions/setup-python@v2.2.2
         with:
-          python-version: 3.9
+          python-version: "3.x"
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip setuptools
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [2.7, 3.7, 3.8, 3.9]
+        python-version: [2.7, 3.7, 3.8, 3.9, "3.10"]
     steps:
       - uses: actions/checkout@v2
       - name: Install python ${{matrix.python-version}}
@@ -70,7 +70,7 @@ jobs:
       - name: Install python
         uses: actions/setup-python@v2.2.2
         with:
-          python-version: 3.9
+          python-version: "3.7"  # matches readthedocs.yml
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip setuptools twine

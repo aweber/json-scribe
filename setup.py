@@ -20,6 +20,7 @@ setuptools.setup(
             "Sphinx==1.8.5; python_version < '3'",
             "Sphinx==4.0.1; python_version >= '3.7'",
             'readme-renderer==21.0',
+            'sphinx-rtd-theme==1.0.0',
             'wheel==0.36.2',
             'yapf==0.22.0',
         ],
@@ -37,5 +38,6 @@ setuptools.setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
 )

@@ -7,10 +7,8 @@ version = jsonscribe.version
 source_suffix = '.rst'
 master_doc = 'index'
 html_extra_path = ['../CODE_OF_CONDUCT.md']
-html_static_path = ['.']
-html_theme = 'alabaster'
-html_sidebars = {'**': ['about.html', 'navigation.html', 'searchbox.html']}
-extensions = []
+html_theme = 'sphinx_rtd_theme'
+extensions = ['sphinx_rtd_theme']
 
 # see https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html
 extensions.append('sphinx.ext.intersphinx')

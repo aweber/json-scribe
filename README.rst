@@ -13,71 +13,36 @@ Usage
 
 Configuration
 ^^^^^^^^^^^^^
+The expectation is that you are using the ``logging.config.dictConfig`` function
+somewhere to configure the Python logging module.  This library exposes two functions
+that return configuration dictionaries appropriate to services and command-line
+applications:
 
-.. code-block:: json
+:get_cli_configuration:
+    Returns a configuration that generates human-readable logs
 
-   {
-      "version": 1,
-      "filters": {
-         "defaultsetter": {
-            "()": "jsonscribe.AttributeSetter",
-            "add_fields": {
-               "correlation_id": "ext://UUID"
-            }
-         }
-      },
-      "formatters": {
-         "jsonlines": {
-            "()": "jsonscribe.JSONFormatter",
-            "include_fields": [
-               "name",
-               "levelname",
-               "asctime",
-               "message",
-               "module",
-               "correlation_id",
-               "exc_info"
-            ],
-         }
-      },
-      "handlers": {
-         "loggly": {
-            "class": "logging.StreamHandler",
-            "formatter": "jsonlines",
-            "filters": ["defaultsetter"],
-            "stream": "ext://sys.stdout"
-         }
-      },
-      "loggers": {
-         "somepackage": {
-            "level": "DEBUG",
-         }
-      },
-      "root": {
-         "level": "INFO",
-         "handlers": ["jsonlines"]
-      }
-   }
+:get_service_configuration:
+    Returns a configuration that generates machine-readable logs
 
 Logging
 ^^^^^^^
 The following snippet is the simplest usage.  It is nothing more than the
-textbook usage of the logging module.  It uses the logging configuration from
-above and generates a JSON blob.
+textbook usage of the logging module.  It uses the logging configuration for
+a service and generates a JSON blob.
 
 .. code-block:: python
 
    import logging.config
-   import json
+
+   import jsonscribe
 
    if __name__ == '__main__':
-      config = json.load(open('config.json'))
-      logging.config.dictConfig(config)
+      logging.config.dictConfig(jsonscribe.get_service_configuration())
       logger = logging.getLogger(__package__).getChild('main')
       logger.info('processing request')
 
-The JSON message looks something like the following.  It is reformatted to
-make it readable.  The default is to render it as compact JSON.
+The JSON message looks something like the following (reformatted to
+make it readable).  The default is to render it as compact JSON.
 
 .. code-block:: json
 
